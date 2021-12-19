@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "6jXSyAux4Dzow/sB6ensRmDtSGkecw3R8xcdjsTCkxryhKcz6IzVj+HgDCKBxulvL06jUAH+NJKAu29Vlu8vyg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Bilal\\Desktop\\First-Homework\\first-homework-bilalkocc\\BilalKoc_Odev1_FirstHomework\\BilalKoc_Odev1_FirstHomework\\BilalKoc_Odev1_FirstHomework.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Bilal\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Bilal\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Bilal\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\Bilal\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\Bilal\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\Bilal\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
