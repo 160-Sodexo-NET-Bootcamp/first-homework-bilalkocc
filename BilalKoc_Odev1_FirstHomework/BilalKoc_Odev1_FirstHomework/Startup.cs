@@ -31,6 +31,7 @@ namespace BilalKoc_Odev1_FirstHomework
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BilalKoc_Odev1_FirstHomework", Version = "v1" });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
         }
 
@@ -40,7 +41,9 @@ namespace BilalKoc_Odev1_FirstHomework
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
+                app.UseSwagger(c=> {
+                    c.RouteTemplate = "/swagger/{documentName}/swagger.json";
+                });
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BilalKoc_Odev1_FirstHomework v1"));
             }
 
