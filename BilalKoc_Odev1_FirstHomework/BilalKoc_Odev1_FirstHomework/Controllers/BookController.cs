@@ -14,7 +14,7 @@ namespace BilalKoc_Odev1_FirstHomework.Controllers
         public string KitapAdi { get; set; }
         public string YazarAdi { get; set; }
         public DateTime BasimYili { get; set; }
-        public Book(int id,int kitapserino,string kitapadi,string yazaradi,DateTime basimyili)
+        public Book(int id, int kitapserino, string kitapadi, string yazaradi, DateTime basimyili)
         {
             this.Id = id;
             this.KitapSeriNo = kitapserino;
@@ -25,7 +25,7 @@ namespace BilalKoc_Odev1_FirstHomework.Controllers
 
     }
 
-    [Route("api/[controller]")]
+    [Route("api/[controller]s")]//Tek controller üzerinden işlem yaptığımız için api/ yapmasak olurdu. Ancak düzenli bir ağaç yapısı için yapılması önemli. 
     [ApiController]
     public class BookController : ControllerBase
     {
@@ -36,34 +36,34 @@ namespace BilalKoc_Odev1_FirstHomework.Controllers
             if (books.Count == 0)
             {
                 books.Add(new Book(1, 101, "kürk mantolu madonna", "Sabahattin Ali", new DateTime(1940, 12, 18)));
-                books.Add(new Book(2, 102, "iki şehrin hikayesi", "charles dickens", new DateTime(1941, 12, 18)));
-                books.Add(new Book(3, 103, "küçük prens", "antoine", new DateTime(1942, 12, 18)));
-                books.Add(new Book(4, 104, "anna karenina 1", "lev tolstoy", new DateTime(1943, 12, 18)));
-                books.Add(new Book(5, 105, "anna karenina 2", "lev tolstoy", new DateTime(1944, 12, 18)));
-                books.Add(new Book(6, 106, "anna karenina 3", "lev tolstoy", new DateTime(1945, 12, 18)));
+                books.Add(new Book(2, 102, "iki şehrin hikayesi", "Charles Dickens", new DateTime(1859, 12, 18)));
+                books.Add(new Book(3, 103, "küçük prens", "Antoine", new DateTime(1943, 12, 18)));
+                books.Add(new Book(4, 104, "İnsancıklar", "Dostoyevski", new DateTime(1846, 12, 18)));
+                books.Add(new Book(5, 105, "Kumarbaz", "Dostoyevski", new DateTime(1866, 12, 18)));
+                books.Add(new Book(6, 106, "Taş Meclisi", "Grange", new DateTime(2000, 12, 18)));
             }
         }
 
        
-        [HttpPost]
+        [HttpPost]//Liste içerisindeki tüm kitapları özellikleri ile birlikte geri döndürür.
         public List<Book> GetBooks()
         {
             return books;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}")]//Parametre olarak aldığı id'ye ait kitabın tüm özelliklerini geri döner.Bunu FromRoute ile yapar.URL'de api/books/3 örneği gibi görünür.
         public Book GetBookFromRoute([FromRoute] int id)
         {
             return books.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        [HttpGet]
+        [HttpGet]//Parametre olarak aldığı id'ye ait kitabın tüm özelliklerini geri döner.Bunu FromQuery ile yapar.URL'de api/books?id=3 örneği gibi görünür.
         public Book GetBookFromQuery([FromQuery] int id)
         {
             return books.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        [HttpPost("insertbook")]
+        [HttpPost("insertbook")]//book veri tipinde aldığı bir json verisini listenin içine yazar.
         public ActionResult InsertBook([FromBody] Book book)
         {
             books.Add(book);
@@ -71,7 +71,7 @@ namespace BilalKoc_Odev1_FirstHomework.Controllers
         }
         
 
-        [HttpPut]
+        [HttpPut]//Güncelle işlemi yapar.
         public ActionResult UpdateBook([FromBody] Book book)
         {
             Book temp = books.Where(x => x.Id == book.Id).FirstOrDefault();
@@ -87,7 +87,7 @@ namespace BilalKoc_Odev1_FirstHomework.Controllers
             return Ok(temp);
         }
 
-        [HttpDelete]
+        [HttpDelete]//Parametre olarak aldığı id'ye ait kitabın bilgilerini siler.
         public ActionResult DeleteBook([FromQuery] int id)
         {
             Book temp = books.Where(x => x.Id == id).FirstOrDefault();
